@@ -128,4 +128,13 @@ MIT License — Free to use for all users.
 
 ---
 
+## 👥 Contributors
+
+| Contributor | GitHub |
+|-------------|--------|
+| Souvik Pachal | [@SouvikPachal2004](https://github.com/SouvikPachal2004) |
+| Srijan | [@Srijan1105](https://github.com/Srijan1105) |
+
+---
+
 Built with ❤️ using AI + Computer Vision
