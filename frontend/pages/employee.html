@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Panel — WorkSense AI</title>
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/employee.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-logo">
+      <div class="logo-icon"><i class="fas fa-brain"></i></div>
+      <span class="logo-text">WorkSense <span class="logo-ai">AI</span></span>
+    </a>
+    <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="nav-section-label">Main</span>
+    <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i> Dashboard</a>
+    <a href="employee.html"  class="nav-item active"><i class="fas fa-users"></i> Employees</a>
+    <a href="admin.html"     class="nav-item"><i class="fas fa-user-shield"></i> Admin Panel</a>
+    <a href="analytics.html" class="nav-item"><i class="fas fa-chart-bar"></i> Analytics</a>
+    <a href="reports.html"   class="nav-item"><i class="fas fa-file-alt"></i> Reports</a>
+    <span class="nav-section-label">AI Monitoring</span>
+    <a href="#" class="nav-item"><i class="fas fa-camera"></i> Live Camera</a>
+    <a href="#" class="nav-item"><i class="fas fa-eye"></i> Focus Tracker</a>
+    <a href="#" class="nav-item"><i class="fas fa-fire"></i> Burnout Risk <span class="nav-badge">2</span></a>
+    <a href="#" class="nav-item"><i class="fas fa-triangle-exclamation"></i> Alerts <span class="nav-badge">5</span></a>
+    <span class="nav-section-label">Settings</span>
+    <a href="#" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
+    <a href="login.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar">AD</div>
+      <div class="user-info"><strong>Admin User</strong><span>admin@worksense.ai</span></div>
+      <i class="fas fa-chevron-right user-chevron"></i>
+    </div>
+  </div>
+</aside>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="topbar-menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">Employee Panel</div>
+      <div class="topbar-subtitle">Individual productivity & behavior tracking</div>
+    </div>
+    <div class="topbar-search">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search employees..." id="empSearch" />
+    </div>
+    <div class="topbar-actions">
+      <div class="live-indicator"><span class="live-dot"></span> LIVE</div>
+      <button class="topbar-btn"><i class="fas fa-bell"></i><span class="badge">5</span></button>
+      <button class="topbar-btn" id="themeToggle"><i class="fas fa-moon" id="themeIcon"></i></button>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="filter-tabs">
+        <button class="ftab active" data-filter="all">All <span class="ftab-count">28</span></button>
+        <button class="ftab" data-filter="active">Active <span class="ftab-count">24</span></button>
+        <button class="ftab" data-filter="break">On Break <span class="ftab-count">3</span></button>
+        <button class="ftab" data-filter="idle">Idle <span class="ftab-count">1</span></button>
+      </div>
+      <div class="filter-actions">
+        <button class="tbl-btn"><i class="fas fa-sort"></i> Sort</button>
+        <button class="tbl-btn"><i class="fas fa-download"></i> Export</button>
+      </div>
+    </div>
+
+    <!-- Employee Cards Grid -->
+    <div class="emp-cards-grid" id="empCardsGrid"></div>
+
+    <!-- Selected Employee Detail -->
+    <div class="emp-detail-panel" id="empDetail" style="display:none">
+      <div class="edp-header">
+        <button class="edp-back" id="edpBack"><i class="fas fa-arrow-left"></i> Back to List</button>
+        <div class="edp-title" id="edpTitle">Employee Detail</div>
+      </div>
+      <div class="edp-body">
+        <div class="edp-left">
+          <div class="edp-profile" id="edpProfile"></div>
+          <div class="edp-metrics" id="edpMetrics"></div>
+        </div>
+        <div class="edp-right">
+          <div class="chart-card" style="margin-bottom:20px">
+            <div class="chart-header"><div class="chart-title">Today's Productivity Timeline</div></div>
+            <canvas id="empTimelineChart" height="160"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header"><div class="chart-title">Weekly Performance</div></div>
+            <canvas id="empWeekChart" height="140"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../js/employee.js"></script>
+</body>
+</html>

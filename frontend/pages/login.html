@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — WorkSense AI</title>
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<div class="login-page">
+
+  <!-- ===== LEFT PANEL ===== -->
+  <div class="login-left">
+    <div class="login-left-content">
+
+      <a href="../index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+
+      <div class="brand">
+        <div class="logo-icon"><i class="fas fa-brain"></i></div>
+        <span class="logo-text">WorkSense <span class="logo-ai">AI</span></span>
+      </div>
+
+      <h1>Welcome Back</h1>
+      <p>Sign in to your workspace and access real-time AI productivity insights.</p>
+
+      <!-- Auth Tabs: Sign In / Sign Up -->
+      <div class="login-tabs">
+        <button class="ltab active" data-form="signin">Sign In</button>
+        <button class="ltab" data-form="signup">Sign Up</button>
+      </div>
+
+      <!-- ===== SIGN IN FORM ===== -->
+      <form class="auth-form active" id="signinForm">
+
+        <!-- Role Selector -->
+        <div class="role-selector">
+          <div class="role-label">
+            <i class="fas fa-user-tag"></i> Sign in as
+          </div>
+          <div class="role-cards">
+            <button type="button" class="role-card active" data-role="admin">
+              <div class="role-card-icon" style="background:rgba(108,99,255,0.15);color:#6c63ff">
+                <i class="fas fa-user-shield"></i>
+              </div>
+              <div class="role-card-info">
+                <strong>Admin</strong>
+                <span>Full access · Team management</span>
+              </div>
+              <i class="fas fa-check-circle role-check"></i>
+            </button>
+            <button type="button" class="role-card" data-role="employee">
+              <div class="role-card-icon" style="background:rgba(0,212,170,0.15);color:#00d4aa">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="role-card-info">
+                <strong>Employee</strong>
+                <span>Personal stats · My dashboard</span>
+              </div>
+              <i class="fas fa-check-circle role-check"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Email Address</label>
+          <input type="email" placeholder="you@company.com" required />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Password</label>
+          <div class="input-wrap">
+            <input type="password" id="signinPass" placeholder="••••••••" required />
+            <button type="button" class="toggle-pass" data-target="signinPass">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-row-between">
+          <label class="checkbox-label">
+            <input type="checkbox" /> Remember me
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-auth" id="signinBtn">
+          <i class="fas fa-sign-in-alt"></i> Sign In as <span id="signinRoleLabel">Admin</span>
+        </button>
+
+        <div class="divider"><span>or continue with</span></div>
+        <div class="social-auth">
+          <button type="button" class="social-auth-btn">
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button type="button" class="social-auth-btn">
+            <i class="fab fa-microsoft"></i> Microsoft
+          </button>
+        </div>
+
+      </form>
+
+      <!-- ===== SIGN UP FORM ===== -->
+      <form class="auth-form" id="signupForm">
+
+        <!-- Role Selector -->
+        <div class="role-selector">
+          <div class="role-label">
+            <i class="fas fa-user-tag"></i> Register as
+          </div>
+          <div class="role-cards">
+            <button type="button" class="role-card active" data-role="admin">
+              <div class="role-card-icon" style="background:rgba(108,99,255,0.15);color:#6c63ff">
+                <i class="fas fa-user-shield"></i>
+              </div>
+              <div class="role-card-info">
+                <strong>Admin</strong>
+                <span>Manage team · Full analytics</span>
+              </div>
+              <i class="fas fa-check-circle role-check"></i>
+            </button>
+            <button type="button" class="role-card" data-role="employee">
+              <div class="role-card-icon" style="background:rgba(0,212,170,0.15);color:#00d4aa">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="role-card-info">
+                <strong>Employee</strong>
+                <span>View my stats · Personal insights</span>
+              </div>
+              <i class="fas fa-check-circle role-check"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> First Name</label>
+            <input type="text" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Last Name</label>
+            <input type="text" placeholder="Doe" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Work Email</label>
+          <input type="email" placeholder="you@company.com" required />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-building"></i> Company Name</label>
+          <input type="text" placeholder="Your Company" />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Password</label>
+          <div class="input-wrap">
+            <input type="password" id="signupPass" placeholder="Min 8 characters" required />
+            <button type="button" class="toggle-pass" data-target="signupPass">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-auth" id="signupBtn">
+          <i class="fas fa-rocket"></i> Create <span id="signupRoleLabel">Admin</span> Account
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ===== RIGHT PANEL ===== -->
+  <div class="login-right">
+    <div class="login-right-content">
+
+      <div class="feature-highlight">
+        <div class="fh-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Real-Time Productivity Intelligence</h3>
+        <p>Monitor, analyze, and optimize your team's performance with AI-powered insights.</p>
+      </div>
+
+      <div class="login-stats">
+        <div class="ls-stat">
+          <span class="ls-val">98%</span>
+          <span class="ls-lbl">Detection Accuracy</span>
+        </div>
+        <div class="ls-stat">
+          <span class="ls-val">500+</span>
+          <span class="ls-lbl">Companies</span>
+        </div>
+        <div class="ls-stat">
+          <span class="ls-val">40%</span>
+          <span class="ls-lbl">Productivity Boost</span>
+        </div>
+      </div>
+
+      <!-- Role info cards on right panel -->
+      <div class="role-info-panel" id="roleInfoPanel">
+        <div class="rip-card active" id="rip-admin">
+          <div class="rip-title">
+            <i class="fas fa-user-shield" style="color:#6c63ff"></i> Admin Access Includes
+          </div>
+          <div class="rip-list">
+            <div class="rip-item"><i class="fas fa-check-circle"></i> Full team productivity dashboard</div>
+            <div class="rip-item"><i class="fas fa-check-circle"></i> Employee management & monitoring</div>
+            <div class="rip-item"><i class="fas fa-check-circle"></i> AI anomaly & burnout detection</div>
+            <div class="rip-item"><i class="fas fa-check-circle"></i> Advanced analytics & reports</div>
+            <div class="rip-item"><i class="fas fa-check-circle"></i> Alert management & notifications</div>
+          </div>
+        </div>
+        <div class="rip-card" id="rip-employee">
+          <div class="rip-title">
+            <i class="fas fa-user" style="color:#00d4aa"></i> Employee Access Includes
+          </div>
+          <div class="rip-list">
+            <div class="rip-item"><i class="fas fa-check-circle"></i> Personal productivity score</div>
+            <div class="rip-item"><i class="fas fa-check-circle"></i> My focus & activity timeline</div>
+            <div class="rip-item"><i class="fas fa-check-circle"></i> Break & work hour tracking</div>
+            <div class="rip-item"><i class="fas fa-check-circle"></i> AI-powered personal tips</div>
+            <div class="rip-item"><i class="fas fa-check-circle"></i> Weekly performance summary</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="login-orb orb-a"></div>
+    <div class="login-orb orb-b"></div>
+  </div>
+
+</div>
+
+<button class="theme-toggle-float" id="themeToggle" aria-label="Toggle theme">
+  <i class="fas fa-moon" id="themeIcon"></i>
+</button>
+
+<script src="../js/login.js"></script>
+</body>
+</html>

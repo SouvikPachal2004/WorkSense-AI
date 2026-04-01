@@ -1,0 +1,234 @@
+/* ============================================================
+   WorkSense AI — CSS Variables & Theme System
+   Full dark + light theme with unique color palette
+   ============================================================ */
+
+/* ---- DARK THEME (Default) ---- */
+:root,
+[data-theme="dark"] {
+
+  /* Brand Colors */
+  --primary:        #6c63ff;
+  --primary-dark:   #5a52d5;
+  --primary-light:  #8b85ff;
+  --secondary:      #00d4aa;
+  --secondary-dark: #00b894;
+  --accent:         #ff6b9d;
+  --accent-orange:  #ff9f43;
+  --accent-blue:    #54a0ff;
+
+  /* Backgrounds */
+  --bg-primary:   #080c18;
+  --bg-secondary: #0d1225;
+  --bg-card:      #111827;
+  --bg-card-hover:#16213a;
+  --bg-sidebar:   #0a0f1e;
+  --bg-glass:     rgba(17, 24, 39, 0.85);
+
+  /* Text */
+  --text-primary:   #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted:     #475569;
+  --text-accent:    #6c63ff;
+
+  /* Borders */
+  --border-color: rgba(108, 99, 255, 0.18);
+  --border-hover: rgba(108, 99, 255, 0.45);
+
+  /* Shadows */
+  --shadow-sm:       0 2px 8px  rgba(0, 0, 0, 0.45);
+  --shadow-md:       0 4px 24px rgba(0, 0, 0, 0.55);
+  --shadow-lg:       0 8px 48px rgba(0, 0, 0, 0.65);
+  --shadow-glow:     0 0 32px   rgba(108, 99, 255, 0.25);
+  --shadow-glow-green: 0 0 32px rgba(0, 212, 170, 0.22);
+
+  /* Status */
+  --success: #00d4aa;
+  --warning: #ff9f43;
+  --danger:  #ff6b9d;
+  --info:    #54a0ff;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6c63ff 0%, #00d4aa 100%);
+  --gradient-accent:  linear-gradient(135deg, #ff6b9d 0%, #ff9f43 100%);
+  --gradient-blue:    linear-gradient(135deg, #54a0ff 0%, #6c63ff 100%);
+  --gradient-card:    linear-gradient(135deg, #111827 0%, #16213a 100%);
+  --gradient-hero:    linear-gradient(135deg, #080c18 0%, #0d1225 50%, #111827 100%);
+  --gradient-sidebar: linear-gradient(180deg, #0a0f1e 0%, #080c18 100%);
+
+  /* Transitions */
+  --transition-fast:   0.15s ease;
+  --transition-normal: 0.3s  ease;
+  --transition-slow:   0.5s  ease;
+
+  /* Radius */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* Layout */
+  --sidebar-width: 260px;
+  --header-height: 68px;
+
+  /* Navbar specific */
+  --navbar-bg:     rgba(8, 12, 24, 0.92);
+  --navbar-border: rgba(108, 99, 255, 0.18);
+}
+
+/* ---- LIGHT THEME ---- */
+[data-theme="light"] {
+
+  /* Brand Colors — same */
+  --primary:        #6c63ff;
+  --primary-dark:   #5a52d5;
+  --primary-light:  #7c75ff;
+  --secondary:      #00b894;
+  --secondary-dark: #009d7e;
+  --accent:         #e84393;
+  --accent-orange:  #f39c12;
+  --accent-blue:    #3498db;
+
+  /* Backgrounds */
+  --bg-primary:   #f4f6ff;
+  --bg-secondary: #eaecf8;
+  --bg-card:      #ffffff;
+  --bg-card-hover:#f0f2ff;
+  --bg-sidebar:   #ffffff;
+  --bg-glass:     rgba(255, 255, 255, 0.92);
+
+  /* Text */
+  --text-primary:   #1a1f3c;
+  --text-secondary: #4a5568;
+  --text-muted:     #9aa5b4;
+  --text-accent:    #6c63ff;
+
+  /* Borders */
+  --border-color: rgba(108, 99, 255, 0.14);
+  --border-hover: rgba(108, 99, 255, 0.38);
+
+  /* Shadows */
+  --shadow-sm:         0 2px 8px  rgba(108, 99, 255, 0.08);
+  --shadow-md:         0 4px 24px rgba(108, 99, 255, 0.13);
+  --shadow-lg:         0 8px 48px rgba(108, 99, 255, 0.18);
+  --shadow-glow:       0 0 32px   rgba(108, 99, 255, 0.18);
+  --shadow-glow-green: 0 0 32px   rgba(0, 184, 148, 0.18);
+
+  /* Status */
+  --success: #00b894;
+  --warning: #f39c12;
+  --danger:  #e84393;
+  --info:    #3498db;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6c63ff 0%, #00b894 100%);
+  --gradient-accent:  linear-gradient(135deg, #e84393 0%, #f39c12 100%);
+  --gradient-blue:    linear-gradient(135deg, #3498db 0%, #6c63ff 100%);
+  --gradient-card:    linear-gradient(135deg, #ffffff 0%, #f4f6ff 100%);
+  --gradient-hero:    linear-gradient(135deg, #f4f6ff 0%, #eaecf8 50%, #f0f2ff 100%);
+  --gradient-sidebar: linear-gradient(180deg, #ffffff 0%, #f4f6ff 100%);
+
+  /* Navbar specific */
+  --navbar-bg:     rgba(244, 246, 255, 0.95);
+  --navbar-border: rgba(108, 99, 255, 0.14);
+}
+
+/* ---- GLOBAL RESET & BASE ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-normal),
+              color var(--transition-normal);
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ---- SELECTION ---- */
+::selection {
+  background: rgba(108, 99, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* ---- UTILITY CLASSES ---- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+}
+
+/* ---- ANIMATIONS ---- */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.3); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -30px) scale(1.05); }
+  66%       { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes barGrow {
+  from { width: 0; }
+  to   { width: var(--fill, 0%); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard — WorkSense AI</title>
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/emp-dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- SIDEBAR — Employee only -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-logo">
+      <div class="logo-icon"><i class="fas fa-brain"></i></div>
+      <span class="logo-text">WorkSense <span class="logo-ai">AI</span></span>
+    </a>
+    <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="nav-section-label">My Workspace</span>
+    <a href="employee-dashboard.html" class="nav-item active">
+      <i class="fas fa-chart-pie"></i> My Dashboard
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fas fa-bullseye"></i> My Focus
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fas fa-clock"></i> Work Hours
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fas fa-mug-hot"></i> Break Log
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fas fa-chart-line"></i> My Performance
+    </a>
+
+    <span class="nav-section-label">AI Insights</span>
+    <a href="#" class="nav-item">
+      <i class="fas fa-robot"></i> AI Tips
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fas fa-fire"></i> Burnout Check
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fas fa-person-walking"></i> Posture Report
+    </a>
+
+    <span class="nav-section-label">Account</span>
+    <a href="#" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
+    <a href="login.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar" id="empAvatar">JD</div>
+      <div class="user-info">
+        <strong id="empName">John Doe</strong>
+        <span id="empEmail">john@worksense.ai</span>
+      </div>
+      <i class="fas fa-chevron-right user-chevron"></i>
+    </div>
+  </div>
+</aside>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="topbar-menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">My Dashboard</div>
+      <div class="topbar-subtitle" id="topbarDate">Tuesday, March 31, 2026</div>
+    </div>
+    <div class="topbar-actions" style="margin-left:auto">
+      <div class="live-indicator"><span class="live-dot"></span> LIVE</div>
+      <button class="topbar-btn"><i class="fas fa-bell"></i></button>
+      <button class="topbar-btn" id="themeToggle"><i class="fas fa-moon" id="themeIcon"></i></button>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- Welcome Banner -->
+    <div class="emp-welcome-banner">
+      <div class="ewb-left">
+        <div class="ewb-avatar" id="ewbAvatar">JD</div>
+        <div>
+          <div class="ewb-greeting" id="ewbGreeting">Good Morning, John!</div>
+          <div class="ewb-sub">Here's your productivity summary for today</div>
+        </div>
+      </div>
+      <div class="ewb-right">
+        <div class="ewb-stat">
+          <span class="ewb-stat-val" style="color:#6c63ff">94</span>
+          <span class="ewb-stat-lbl">Today's Score</span>
+        </div>
+        <div class="ewb-stat">
+          <span class="ewb-stat-val" style="color:#00d4aa">7h 20m</span>
+          <span class="ewb-stat-lbl">Work Time</span>
+        </div>
+        <div class="ewb-stat">
+          <span class="ewb-stat-val" style="color:#ff9f43">35m</span>
+          <span class="ewb-stat-lbl">Break Time</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Metric Cards -->
+    <div class="metrics-grid">
+      <div class="metric-card" style="--card-accent:linear-gradient(90deg,#6c63ff,#8b85ff)">
+        <div class="metric-header">
+          <div class="metric-icon" style="background:rgba(108,99,255,0.15);color:#6c63ff">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <div class="metric-trend up"><i class="fas fa-arrow-up"></i> 5%</div>
+        </div>
+        <div class="metric-value">92%</div>
+        <div class="metric-label">My Focus Score</div>
+        <div class="metric-sub">Above team average</div>
+      </div>
+      <div class="metric-card" style="--card-accent:linear-gradient(90deg,#00d4aa,#00b894)">
+        <div class="metric-header">
+          <div class="metric-icon" style="background:rgba(0,212,170,0.15);color:#00d4aa">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="metric-trend up"><i class="fas fa-arrow-up"></i> 3%</div>
+        </div>
+        <div class="metric-value">94</div>
+        <div class="metric-label">Productivity Score</div>
+        <div class="metric-sub">Excellent performance</div>
+      </div>
+      <div class="metric-card" style="--card-accent:linear-gradient(90deg,#ff9f43,#e17055)">
+        <div class="metric-header">
+          <div class="metric-icon" style="background:rgba(255,159,67,0.15);color:#ff9f43">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="metric-trend up"><i class="fas fa-arrow-up"></i> 20m</div>
+        </div>
+        <div class="metric-value">7h 20m</div>
+        <div class="metric-label">Work Hours Today</div>
+        <div class="metric-sub">35m break taken</div>
+      </div>
+      <div class="metric-card" style="--card-accent:linear-gradient(90deg,#54a0ff,#6c63ff)">
+        <div class="metric-header">
+          <div class="metric-icon" style="background:rgba(84,160,255,0.15);color:#54a0ff">
+            <i class="fas fa-fire"></i>
+          </div>
+          <div class="metric-trend up"><i class="fas fa-arrow-up"></i> Good</div>
+        </div>
+        <div class="metric-value" style="color:#00d4aa">Low</div>
+        <div class="metric-label">Burnout Risk</div>
+        <div class="metric-sub">You're doing great!</div>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">My Productivity Today</div>
+            <div class="chart-subtitle">Hourly breakdown</div>
+          </div>
+          <div class="chart-actions">
+            <button class="chart-btn active">Today</button>
+            <button class="chart-btn">Week</button>
+          </div>
+        </div>
+        <canvas id="myProdChart" height="160"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">My Activity Split</div>
+          <div class="chart-subtitle">Today's session</div>
+        </div>
+        <canvas id="myActivityChart" height="160"></canvas>
+      </div>
+    </div>
+
+    <!-- Weekly + AI Tips Row -->
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-bottom:22px">
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Weekly Performance</div>
+          <div class="chart-subtitle">Mon – Fri this week</div>
+        </div>
+        <canvas id="myWeekChart" height="150"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title"><i class="fas fa-robot" style="color:var(--primary);margin-right:6px"></i>AI Tips for You</div>
+        </div>
+        <div id="myAiTips" style="display:flex;flex-direction:column;gap:10px"></div>
+      </div>
+    </div>
+
+    <!-- Posture + Break Log Row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Posture & Attention Log</div>
+          <div class="chart-subtitle">Today's detections</div>
+        </div>
+        <div id="postureLog" style="display:flex;flex-direction:column;gap:8px"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Break Timeline</div>
+          <div class="chart-subtitle">Today's breaks</div>
+        </div>
+        <canvas id="myBreakChart" height="150"></canvas>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../js/emp-dashboard.js"></script>
+</body>
+</html>

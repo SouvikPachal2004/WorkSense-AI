@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics — WorkSense AI</title>
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Analytics-specific compact overrides */
+    .analytics-grid-2   { display: grid; grid-template-columns: 1fr 1fr;         gap: 16px; margin-bottom: 16px; }
+    .analytics-grid-3   { display: grid; grid-template-columns: 1fr 1fr 1fr;     gap: 16px; margin-bottom: 16px; }
+    .analytics-grid-4   { display: grid; grid-template-columns: repeat(4,1fr);   gap: 16px; margin-bottom: 16px; }
+    .analytics-grid-2-1 { display: grid; grid-template-columns: 1.4fr 1fr;       gap: 16px; margin-bottom: 16px; }
+    .chart-card { padding: 16px; }
+    .chart-header { margin-bottom: 12px; }
+    @media (max-width: 900px) {
+      .analytics-grid-2, .analytics-grid-3, .analytics-grid-2-1 { grid-template-columns: 1fr; }
+      .analytics-grid-4 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) { .analytics-grid-4 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-logo">
+      <div class="logo-icon"><i class="fas fa-brain"></i></div>
+      <span class="logo-text">WorkSense <span class="logo-ai">AI</span></span>
+    </a>
+    <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="nav-section-label">Main</span>
+    <a href="dashboard.html"  class="nav-item"><i class="fas fa-chart-pie"></i> Dashboard</a>
+    <a href="employee.html"   class="nav-item"><i class="fas fa-users"></i> Employees</a>
+    <a href="admin.html"      class="nav-item"><i class="fas fa-user-shield"></i> Admin Panel</a>
+    <a href="analytics.html"  class="nav-item active"><i class="fas fa-chart-bar"></i> Analytics</a>
+    <a href="reports.html"    class="nav-item"><i class="fas fa-file-alt"></i> Reports</a>
+    <span class="nav-section-label">AI Monitoring</span>
+    <a href="#" class="nav-item"><i class="fas fa-camera"></i> Live Camera</a>
+    <a href="#" class="nav-item"><i class="fas fa-fire"></i> Burnout Risk <span class="nav-badge">2</span></a>
+    <a href="#" class="nav-item"><i class="fas fa-triangle-exclamation"></i> Alerts <span class="nav-badge">5</span></a>
+    <span class="nav-section-label">Settings</span>
+    <a href="#" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
+    <a href="login.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar">AD</div>
+      <div class="user-info"><strong>Admin User</strong><span>admin@worksense.ai</span></div>
+      <i class="fas fa-chevron-right user-chevron"></i>
+    </div>
+  </div>
+</aside>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="topbar-menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">Advanced Analytics</div>
+      <div class="topbar-subtitle">Behavioral insights & predictions</div>
+    </div>
+    <div class="topbar-actions" style="margin-left:auto;gap:8px;display:flex;align-items:center">
+      <select id="periodSelect" style="padding:7px 12px;border-radius:8px;background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary);font-size:12px;cursor:pointer;outline:none">
+        <option>Last 7 Days</option>
+        <option>Last 30 Days</option>
+        <option>Last 3 Months</option>
+      </select>
+      <button class="topbar-btn" id="themeToggle"><i class="fas fa-moon" id="themeIcon"></i></button>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- Row 1: KPI Cards -->
+    <div class="analytics-grid-4">
+      <div class="metric-card" style="--card-accent:linear-gradient(90deg,#6c63ff,#8b85ff)">
+        <div class="metric-header">
+          <div class="metric-icon" style="background:rgba(108,99,255,0.15);color:#6c63ff"><i class="fas fa-brain"></i></div>
+          <div class="metric-trend up"><i class="fas fa-arrow-up"></i> 4%</div>
+        </div>
+        <div class="metric-value">87%</div>
+        <div class="metric-label">Avg Focus Score</div>
+        <div class="metric-sub">7-day average</div>
+      </div>
+      <div class="metric-card" style="--card-accent:linear-gradient(90deg,#00d4aa,#00b894)">
+        <div class="metric-header">
+          <div class="metric-icon" style="background:rgba(0,212,170,0.15);color:#00d4aa"><i class="fas fa-clock"></i></div>
+          <div class="metric-trend up"><i class="fas fa-arrow-up"></i> 12m</div>
+        </div>
+        <div class="metric-value">6.4h</div>
+        <div class="metric-label">Avg Work Time</div>
+        <div class="metric-sub">Per employee/day</div>
+      </div>
+      <div class="metric-card" style="--card-accent:linear-gradient(90deg,#ff9f43,#e17055)">
+        <div class="metric-header">
+          <div class="metric-icon" style="background:rgba(255,159,67,0.15);color:#ff9f43"><i class="fas fa-mug-hot"></i></div>
+          <div class="metric-trend down"><i class="fas fa-arrow-down"></i> 5m</div>
+        </div>
+        <div class="metric-value">38m</div>
+        <div class="metric-label">Avg Break Time</div>
+        <div class="metric-sub">Per employee/day</div>
+      </div>
+      <div class="metric-card" style="--card-accent:linear-gradient(90deg,#ff6b9d,#a29bfe)">
+        <div class="metric-header">
+          <div class="metric-icon" style="background:rgba(255,107,157,0.15);color:#ff6b9d"><i class="fas fa-chart-line"></i></div>
+          <div class="metric-trend up"><i class="fas fa-arrow-up"></i> 6%</div>
+        </div>
+        <div class="metric-value">+38%</div>
+        <div class="metric-label">Productivity Gain</div>
+        <div class="metric-sub">Since AI monitoring</div>
+      </div>
+    </div>
+
+    <!-- Row 2: Monthly Trend + Behavioral Clusters -->
+    <div class="analytics-grid-2">
+      <div class="chart-card">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">Monthly Productivity Trend</div>
+            <div class="chart-subtitle">All employees combined</div>
+          </div>
+          <div class="chart-actions">
+            <button class="chart-btn active">Line</button>
+            <button class="chart-btn">Bar</button>
+          </div>
+        </div>
+        <canvas id="monthlyChart" height="150"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Behavioral Clusters</div>
+          <div class="chart-subtitle">K-Means ML · Focus vs Productivity</div>
+        </div>
+        <canvas id="clusterChart" height="150"></canvas>
+      </div>
+    </div>
+
+    <!-- Row 3: 3 compact charts -->
+    <div class="analytics-grid-3">
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Hourly Focus Heatmap</div>
+          <div class="chart-subtitle">Avg focus % by hour</div>
+        </div>
+        <canvas id="heatmapChart" height="130"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Productivity Forecast</div>
+          <div class="chart-subtitle">Next 7 days (AI prediction)</div>
+        </div>
+        <canvas id="predictionChart" height="130"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Distraction Sources</div>
+          <div class="chart-subtitle">Breakdown by type</div>
+        </div>
+        <canvas id="distractionChart" height="130"></canvas>
+      </div>
+    </div>
+
+    <!-- Row 4: Focus Distribution + Burnout Trend -->
+    <div class="analytics-grid-2">
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Focus Time by Hour</div>
+          <div class="chart-subtitle">Color = performance level</div>
+        </div>
+        <canvas id="focusDistChart" height="130"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">Burnout Risk Trend</div>
+          <div class="chart-subtitle">Team-wide over 4 weeks</div>
+        </div>
+        <canvas id="burnoutTrendChart" height="130"></canvas>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../js/analytics.js"></script>
+</body>
+</html>

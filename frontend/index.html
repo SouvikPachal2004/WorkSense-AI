@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkSense AI — Intelligent Workplace Productivity Platform</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon"><i class="fas fa-brain"></i></div>
+      <span class="logo-text">WorkSense <span class="logo-ai">AI</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#ai-capabilities">AI Capabilities</a></li>
+      <li><a href="#dashboard-preview">Dashboard</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+      <a href="pages/login.html" class="btn btn-outline">Login</a>
+      <a href="pages/login.html" class="btn btn-primary">Get Started</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO SECTION ========== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
+    <canvas id="heroCanvas"></canvas>
+  </div>
+  <div class="hero-container">
+    <div class="hero-badge">
+      <i class="fas fa-circle-dot pulse-dot"></i>
+      <span>AI-Powered Workplace Intelligence</span>
+    </div>
+    <h1 class="hero-title">
+      Transform Your Workplace with
+      <span class="gradient-text">Intelligent AI</span>
+      Monitoring
+    </h1>
+    <p class="hero-subtitle">
+      Real-time computer vision, deep learning, and behavioral AI that turns camera data into
+      actionable productivity insights — for remote, office, and hybrid teams.
+    </p>
+    <div class="hero-actions">
+      <a href="pages/login.html" class="btn btn-primary btn-lg">
+        <i class="fas fa-rocket"></i> Get Started — Free
+      </a>
+      <a href="#dashboard-preview" class="btn btn-ghost btn-lg">
+        <i class="fas fa-play-circle"></i> Watch Demo
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-number" data-target="98">0</span><span>%</span>
+        <span class="stat-label">Detection Accuracy</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-number" data-target="500">0</span><span>+</span>
+        <span class="stat-label">Companies Trust Us</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-number" data-target="40">0</span><span>%</span>
+        <span class="stat-label">Productivity Boost</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-number" data-target="24">0</span><span>/7</span>
+        <span class="stat-label">Real-Time Monitoring</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="dashboard-mockup">
+      <div class="mockup-header">
+        <div class="mockup-dots">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        </div>
+        <span class="mockup-title">WorkSense AI Dashboard</span>
+        <div class="mockup-live"><span class="live-dot"></span> LIVE</div>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-sidebar">
+          <div class="ms-item active"><i class="fas fa-chart-pie"></i></div>
+          <div class="ms-item"><i class="fas fa-users"></i></div>
+          <div class="ms-item"><i class="fas fa-eye"></i></div>
+          <div class="ms-item"><i class="fas fa-bell"></i></div>
+          <div class="ms-item"><i class="fas fa-cog"></i></div>
+        </div>
+        <div class="mockup-content">
+          <div class="mockup-cards">
+            <div class="mc-card green">
+              <span class="mc-val">94%</span>
+              <span class="mc-lbl">Focus Score</span>
+            </div>
+            <div class="mc-card purple">
+              <span class="mc-val">12</span>
+              <span class="mc-lbl">Active Now</span>
+            </div>
+            <div class="mc-card orange">
+              <span class="mc-val">87</span>
+              <span class="mc-lbl">Productivity</span>
+            </div>
+          </div>
+          <div class="mockup-chart-area">
+            <canvas id="mockupChart" width="300" height="100"></canvas>
+          </div>
+          <div class="mockup-feed">
+            <div class="feed-item"><span class="feed-dot green"></span> Employee #4 — Focused</div>
+            <div class="feed-item"><span class="feed-dot orange"></span> Employee #7 — Break</div>
+            <div class="feed-item"><span class="feed-dot red"></span> Alert: Low activity #2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRUSTED BY ========== -->
+<section class="trusted">
+  <div class="container">
+    <p class="trusted-label">Trusted by leading companies worldwide</p>
+    <div class="trusted-logos">
+      <div class="tl-item"><i class="fab fa-google"></i> Google</div>
+      <div class="tl-item"><i class="fab fa-microsoft"></i> Microsoft</div>
+      <div class="tl-item"><i class="fab fa-amazon"></i> Amazon</div>
+      <div class="tl-item"><i class="fab fa-slack"></i> Slack</div>
+      <div class="tl-item"><i class="fab fa-salesforce"></i> Salesforce</div>
+      <div class="tl-item"><i class="fab fa-shopify"></i> Shopify</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FEATURES SECTION ========== -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Core Features</div>
+      <h2 class="section-title">Everything You Need to <span class="gradient-text">Monitor & Optimize</span></h2>
+      <p class="section-subtitle">A complete AI-powered suite for workplace productivity intelligence</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feature-card" data-aos="fade-up">
+        <div class="feature-icon" style="--icon-color:#6c63ff">
+          <i class="fas fa-user-check"></i>
+        </div>
+        <h3>Employee Detection</h3>
+        <p>YOLOv8-powered real-time multi-employee detection with bounding boxes, presence logs, and unknown person alerts.</p>
+        <div class="feature-tags">
+          <span>YOLOv8</span><span>OpenCV</span><span>Real-time</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon" style="--icon-color:#00d4aa">
+          <i class="fas fa-eye"></i>
+        </div>
+        <h3>Attention Tracking</h3>
+        <p>Eye gaze detection, head pose estimation, and facial landmark analysis to classify focus, distraction, and drowsiness.</p>
+        <div class="feature-tags">
+          <span>CNN</span><span>MediaPipe</span><span>Gaze AI</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon" style="--icon-color:#ff6b9d">
+          <i class="fas fa-person-walking"></i>
+        </div>
+        <h3>Pose & Posture Analysis</h3>
+        <p>Detect slouching, fatigue, and poor posture in real time using MediaPipe pose estimation with smart alerts.</p>
+        <div class="feature-tags">
+          <span>MediaPipe</span><span>OpenPose</span><span>Fatigue AI</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-icon" style="--icon-color:#ff9f43">
+          <i class="fas fa-mobile-screen-button"></i>
+        </div>
+        <h3>Phone Usage Detection</h3>
+        <p>YOLO-based object detection identifies mobile phone usage and non-work distractions automatically.</p>
+        <div class="feature-tags">
+          <span>YOLO</span><span>Object Detection</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-icon" style="--icon-color:#54a0ff">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Productivity Score Engine</h3>
+        <p>ML-powered scoring using focus time, active time, break duration, and engagement level with Random Forest models.</p>
+        <div class="feature-tags">
+          <span>Random Forest</span><span>ML</span><span>Score 0-100</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="feature-icon" style="--icon-color:#a29bfe">
+          <i class="fas fa-fire"></i>
+        </div>
+        <h3>Burnout Detection</h3>
+        <p>Predict burnout risk by analyzing continuous low productivity, long working hours, and fatigue patterns over time.</p>
+        <div class="feature-tags">
+          <span>Time-Series</span><span>Prediction</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up">
+        <div class="feature-icon" style="--icon-color:#fd79a8">
+          <i class="fas fa-triangle-exclamation"></i>
+        </div>
+        <h3>Anomaly Detection</h3>
+        <p>Isolation Forest and Autoencoders detect excessive breaks, unusual behavior, and low activity patterns.</p>
+        <div class="feature-tags">
+          <span>Isolation Forest</span><span>Autoencoder</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon" style="--icon-color:#00cec9">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3>AI Recommendation Engine</h3>
+        <p>Personalized suggestions for break schedules, focus tips, and work improvement based on behavioral patterns.</p>
+        <div class="feature-tags">
+          <span>NLP</span><span>Behavioral AI</span>
+        </div>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon" style="--icon-color:#e17055">
+          <i class="fas fa-users-viewfinder"></i>
+        </div>
+        <h3>Multi-Employee Tracking</h3>
+        <p>DeepSORT-based unique employee ID tracking across frames with multi-person simultaneous monitoring.</p>
+        <div class="feature-tags">
+          <span>DeepSORT</span><span>YOLO</span><span>Tracking</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== AI CAPABILITIES SECTION ========== -->
+<section class="ai-capabilities" id="ai-capabilities">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">AI Technology</div>
+      <h2 class="section-title">Powered by <span class="gradient-text">State-of-the-Art AI</span></h2>
+      <p class="section-subtitle">Deep learning, computer vision, and behavioral ML working together</p>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-left">
+        <div class="ai-tab-list">
+          <button class="ai-tab active" data-tab="cv">
+            <i class="fas fa-camera"></i>
+            <div>
+              <strong>Computer Vision</strong>
+              <span>Real-time visual analysis</span>
+            </div>
+          </button>
+          <button class="ai-tab" data-tab="dl">
+            <i class="fas fa-network-wired"></i>
+            <div>
+              <strong>Deep Learning</strong>
+              <span>Neural network models</span>
+            </div>
+          </button>
+          <button class="ai-tab" data-tab="ml">
+            <i class="fas fa-brain"></i>
+            <div>
+              <strong>Machine Learning</strong>
+              <span>Behavioral intelligence</span>
+            </div>
+          </button>
+          <button class="ai-tab" data-tab="pred">
+            <i class="fas fa-chart-bar"></i>
+            <div>
+              <strong>Predictive Analytics</strong>
+              <span>Future performance forecasting</span>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="ai-right">
+        <div class="ai-panel active" id="tab-cv">
+          <h3><i class="fas fa-camera"></i> Computer Vision Pipeline</h3>
+          <p>Our CV pipeline processes live camera feeds at 30fps using OpenCV and YOLOv8 for real-time detection.</p>
+          <div class="ai-tech-list">
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> YOLOv8 Object Detection</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> MediaPipe Pose Estimation</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Facial Landmark Detection</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Eye Gaze Tracking</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Head Pose Estimation</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> DeepSORT Multi-Tracking</div>
+          </div>
+          <div class="ai-accuracy-bar">
+            <span>Detection Accuracy</span>
+            <div class="bar-track"><div class="bar-fill" style="--fill:98%"></div></div>
+            <span>98%</span>
+          </div>
+        </div>
+        <div class="ai-panel" id="tab-dl">
+          <h3><i class="fas fa-network-wired"></i> Deep Learning Models</h3>
+          <p>Custom-trained CNN + LSTM models for activity recognition, drowsiness detection, and behavior classification.</p>
+          <div class="ai-tech-list">
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> CNN for Image Classification</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> LSTM for Temporal Patterns</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Faster R-CNN Detection</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Autoencoder Anomaly Detection</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> TensorFlow / PyTorch Backend</div>
+          </div>
+          <div class="ai-accuracy-bar">
+            <span>Model Accuracy</span>
+            <div class="bar-track"><div class="bar-fill" style="--fill:95%"></div></div>
+            <span>95%</span>
+          </div>
+        </div>
+        <div class="ai-panel" id="tab-ml">
+          <h3><i class="fas fa-brain"></i> Machine Learning Intelligence</h3>
+          <p>Scikit-learn powered behavioral analysis with clustering, regression, and anomaly detection algorithms.</p>
+          <div class="ai-tech-list">
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Random Forest Productivity Score</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> K-Means Behavioral Clustering</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Isolation Forest Anomaly Detection</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Linear Regression Scoring</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Scikit-learn Pipeline</div>
+          </div>
+          <div class="ai-accuracy-bar">
+            <span>Prediction Accuracy</span>
+            <div class="bar-track"><div class="bar-fill" style="--fill:92%"></div></div>
+            <span>92%</span>
+          </div>
+        </div>
+        <div class="ai-panel" id="tab-pred">
+          <h3><i class="fas fa-chart-bar"></i> Predictive Analytics</h3>
+          <p>Time-series forecasting predicts future productivity, burnout risk, and performance trends days in advance.</p>
+          <div class="ai-tech-list">
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> ARIMA Time-Series Forecasting</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Burnout Risk Prediction</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Performance Trend Analysis</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> Anomaly Early Warning</div>
+            <div class="ai-tech-item"><i class="fas fa-check-circle"></i> AI Recommendation Engine</div>
+          </div>
+          <div class="ai-accuracy-bar">
+            <span>Forecast Accuracy</span>
+            <div class="bar-track"><div class="bar-fill" style="--fill:89%"></div></div>
+            <span>89%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section class="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">System Flow</div>
+      <h2 class="section-title">How <span class="gradient-text">WorkSense AI</span> Works</h2>
+      <p class="section-subtitle">From camera input to actionable insights in milliseconds</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-icon"><i class="fas fa-camera"></i></div>
+        <div class="step-num">01</div>
+        <h4>Camera Input</h4>
+        <p>Live video feed from office or remote cameras</p>
+      </div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step">
+        <div class="step-icon"><i class="fas fa-eye"></i></div>
+        <div class="step-num">02</div>
+        <h4>OpenCV Processing</h4>
+        <p>Frame extraction, preprocessing, and enhancement</p>
+      </div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step">
+        <div class="step-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="step-num">03</div>
+        <h4>Deep Learning</h4>
+        <p>YOLOv8, CNN, LSTM detection and classification</p>
+      </div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step">
+        <div class="step-icon"><i class="fas fa-brain"></i></div>
+        <div class="step-num">04</div>
+        <h4>ML Analysis</h4>
+        <p>Behavioral scoring, prediction, and anomaly detection</p>
+      </div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step">
+        <div class="step-icon"><i class="fas fa-server"></i></div>
+        <div class="step-num">05</div>
+        <h4>Backend API</h4>
+        <p>Flask REST API processes and routes data</p>
+      </div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step">
+        <div class="step-icon"><i class="fas fa-database"></i></div>
+        <div class="step-num">06</div>
+        <h4>MongoDB Storage</h4>
+        <p>Persistent storage of all analytics and logs</p>
+      </div>
+      <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="flow-step">
+        <div class="step-icon"><i class="fas fa-chart-pie"></i></div>
+        <div class="step-num">07</div>
+        <h4>Dashboard</h4>
+        <p>Real-time visualization and actionable insights</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DASHBOARD PREVIEW ========== -->
+<section class="dashboard-preview" id="dashboard-preview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Live Dashboard</div>
+      <h2 class="section-title">Powerful <span class="gradient-text">Analytics Dashboard</span></h2>
+      <p class="section-subtitle">Real-time charts, heatmaps, and productivity insights at a glance</p>
+    </div>
+    <div class="preview-tabs">
+      <button class="preview-tab active" data-preview="realtime">Real-Time</button>
+      <button class="preview-tab" data-preview="individual">Individual</button>
+      <button class="preview-tab" data-preview="team">Team Analytics</button>
+      <button class="preview-tab" data-preview="reports">Reports</button>
+    </div>
+    <div class="preview-window">
+      <div class="pw-header">
+        <div class="pw-dots">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        </div>
+        <span>WorkSense AI — Analytics Dashboard</span>
+        <div class="pw-live"><span class="live-dot"></span> LIVE</div>
+      </div>
+      <div class="pw-body">
+        <!-- Metric Cards -->
+        <div class="pw-metrics">
+          <div class="pw-metric">
+            <div class="pwm-icon" style="background:rgba(108,99,255,0.15);color:#6c63ff"><i class="fas fa-users"></i></div>
+            <div><div class="pwm-val">24</div><div class="pwm-lbl">Active Employees</div></div>
+          </div>
+          <div class="pw-metric">
+            <div class="pwm-icon" style="background:rgba(0,212,170,0.15);color:#00d4aa"><i class="fas fa-bullseye"></i></div>
+            <div><div class="pwm-val">87%</div><div class="pwm-lbl">Avg Focus Score</div></div>
+          </div>
+          <div class="pw-metric">
+            <div class="pwm-icon" style="background:rgba(255,107,157,0.15);color:#ff6b9d"><i class="fas fa-chart-line"></i></div>
+            <div><div class="pwm-val">91</div><div class="pwm-lbl">Productivity Index</div></div>
+          </div>
+          <div class="pw-metric">
+            <div class="pwm-icon" style="background:rgba(255,159,67,0.15);color:#ff9f43"><i class="fas fa-clock"></i></div>
+            <div><div class="pwm-val">6.4h</div><div class="pwm-lbl">Avg Work Time</div></div>
+          </div>
+        </div>
+        <!-- Charts Row -->
+        <div class="pw-charts">
+          <div class="pw-chart-card">
+            <div class="pwc-title">Productivity Trend (Today)</div>
+            <canvas id="previewChart1" height="80"></canvas>
+          </div>
+          <div class="pw-chart-card">
+            <div class="pwc-title">Activity Distribution</div>
+            <canvas id="previewChart2" height="80"></canvas>
+          </div>
+          <div class="pw-chart-card">
+            <div class="pwc-title">Focus vs Distraction</div>
+            <canvas id="previewChart3" height="80"></canvas>
+          </div>
+        </div>
+        <!-- Employee Table -->
+        <div class="pw-table-wrap">
+          <div class="pwc-title">Employee Status — Live</div>
+          <table class="pw-table">
+            <thead>
+              <tr><th>Employee</th><th>Status</th><th>Focus</th><th>Productivity</th><th>Alert</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="emp-cell"><div class="emp-avatar" style="background:#6c63ff">JD</div> John Doe</div></td>
+                <td><span class="status-badge active">Active</span></td>
+                <td><div class="mini-bar"><div style="width:92%;background:#00d4aa"></div></div> 92%</td>
+                <td>94</td>
+                <td><span class="alert-none">—</span></td>
+              </tr>
+              <tr>
+                <td><div class="emp-cell"><div class="emp-avatar" style="background:#ff6b9d">SM</div> Sarah M.</div></td>
+                <td><span class="status-badge break">Break</span></td>
+                <td><div class="mini-bar"><div style="width:65%;background:#ff9f43"></div></div> 65%</td>
+                <td>72</td>
+                <td><span class="alert-warn">Long Break</span></td>
+              </tr>
+              <tr>
+                <td><div class="emp-cell"><div class="emp-avatar" style="background:#00d4aa">RK</div> Raj K.</div></td>
+                <td><span class="status-badge active">Active</span></td>
+                <td><div class="mini-bar"><div style="width:88%;background:#00d4aa"></div></div> 88%</td>
+                <td>89</td>
+                <td><span class="alert-none">—</span></td>
+              </tr>
+              <tr>
+                <td><div class="emp-cell"><div class="emp-avatar" style="background:#ff9f43">AL</div> Amy L.</div></td>
+                <td><span class="status-badge idle">Idle</span></td>
+                <td><div class="mini-bar"><div style="width:42%;background:#ff6b9d"></div></div> 42%</td>
+                <td>55</td>
+                <td><span class="alert-danger">Low Activity</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="preview-cta">
+      <a href="pages/dashboard.html" class="btn btn-primary btn-lg">
+        <i class="fas fa-external-link-alt"></i> Open Full Dashboard
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Testimonials</div>
+      <h2 class="section-title">What Our <span class="gradient-text">Customers Say</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"WorkSense AI transformed how we manage our remote team. Productivity went up 38% in the first month."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#6c63ff">MR</div>
+          <div><strong>Michael R.</strong><span>CTO, TechFlow Inc.</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"The burnout detection feature alone saved us from losing 3 key engineers. Incredible AI accuracy."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#00d4aa">SP</div>
+          <div><strong>Sarah P.</strong><span>HR Director, DataCorp</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Real-time dashboards give us insights we never had before. The AI recommendations are spot on."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#ff6b9d">AK</div>
+          <div><strong>Alex K.</strong><span>Operations Lead, StartupX</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT SECTION ========== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Contact Us</div>
+      <h2 class="section-title">Get in <span class="gradient-text">Touch</span></h2>
+      <p class="section-subtitle">Have questions? Our team is ready to help you get started</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div><strong>Email Us</strong><span>hello@worksense.ai</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><i class="fas fa-phone"></i></div>
+          <div><strong>Call Us</strong><span>+1 (800) 555-0199</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><i class="fas fa-location-dot"></i></div>
+          <div><strong>Office</strong><span>123 AI Boulevard, San Francisco, CA</span></div>
+        </div>
+        <div class="contact-socials">
+          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="john@company.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Company</label>
+          <input type="text" placeholder="Your Company Name" />
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option>General Inquiry</option>
+            <option>Sales & Pricing</option>
+            <option>Technical Support</option>
+            <option>Partnership</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="4" placeholder="Tell us about your needs..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="logo-icon"><i class="fas fa-brain"></i></div>
+          <span class="logo-text">WorkSense <span class="logo-ai">AI</span></span>
+        </div>
+        <p>AI-powered workplace productivity monitoring platform for modern teams.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h5>Product</h5>
+        <a href="#features">Features</a>
+        <a href="#ai-capabilities">AI Capabilities</a>
+        <a href="#dashboard-preview">Dashboard</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h5>Dashboards</h5>
+        <a href="pages/dashboard.html">Main Dashboard</a>
+        <a href="pages/employee.html">Employee Panel</a>
+        <a href="pages/admin.html">Admin Panel</a>
+        <a href="pages/analytics.html">Analytics</a>
+      </div>
+      <div class="footer-links">
+        <h5>Company</h5>
+        <a href="#">About Us</a>
+        <a href="#">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 WorkSense AI. All rights reserved.</span>
+      <span>Built with <i class="fas fa-heart" style="color:#ff6b9d"></i> using AI + Computer Vision</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== LOGIN MODAL ========== -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+    <div class="modal-logo">
+      <div class="logo-icon"><i class="fas fa-brain"></i></div>
+      <span>WorkSense <span class="logo-ai">AI</span></span>
+    </div>
+    <h3>Welcome Back</h3>
+    <p>Sign in to your dashboard</p>
+    <form class="modal-form">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@company.com" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+    </form>
+    <p class="modal-footer-text">Don't have an account? <a href="#">Sign up free</a></p>
+  </div>
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script src="js/index.js"></script>
+</body>
+</html>

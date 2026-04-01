@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports — WorkSense AI</title>
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/reports.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-logo">
+      <div class="logo-icon"><i class="fas fa-brain"></i></div>
+      <span class="logo-text">WorkSense <span class="logo-ai">AI</span></span>
+    </a>
+    <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="nav-section-label">Main</span>
+    <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i> Dashboard</a>
+    <a href="employee.html"  class="nav-item"><i class="fas fa-users"></i> Employees</a>
+    <a href="admin.html"     class="nav-item"><i class="fas fa-user-shield"></i> Admin Panel</a>
+    <a href="analytics.html" class="nav-item"><i class="fas fa-chart-bar"></i> Analytics</a>
+    <a href="reports.html"   class="nav-item active"><i class="fas fa-file-alt"></i> Reports</a>
+    <span class="nav-section-label">AI Monitoring</span>
+    <a href="#" class="nav-item"><i class="fas fa-camera"></i> Live Camera</a>
+    <a href="#" class="nav-item"><i class="fas fa-fire"></i> Burnout Risk <span class="nav-badge">2</span></a>
+    <a href="#" class="nav-item"><i class="fas fa-triangle-exclamation"></i> Alerts <span class="nav-badge">5</span></a>
+    <span class="nav-section-label">Settings</span>
+    <a href="#" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
+    <a href="login.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar">AD</div>
+      <div class="user-info"><strong>Admin User</strong><span>admin@worksense.ai</span></div>
+      <i class="fas fa-chevron-right user-chevron"></i>
+    </div>
+  </div>
+</aside>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="topbar-menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">Reports & Analytics</div>
+      <div class="topbar-subtitle">Generate, export and schedule reports</div>
+    </div>
+    <div class="topbar-actions">
+      <button class="topbar-btn" id="themeToggle"><i class="fas fa-moon" id="themeIcon"></i></button>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- Report Type Cards -->
+    <div class="report-types-grid">
+      <div class="report-type-card active" data-type="daily">
+        <div class="rtc-icon" style="background:rgba(108,99,255,0.15);color:#6c63ff"><i class="fas fa-calendar-day"></i></div>
+        <div class="rtc-title">Daily Report</div>
+        <div class="rtc-desc">Today's productivity summary</div>
+      </div>
+      <div class="report-type-card" data-type="weekly">
+        <div class="rtc-icon" style="background:rgba(0,212,170,0.15);color:#00d4aa"><i class="fas fa-calendar-week"></i></div>
+        <div class="rtc-title">Weekly Report</div>
+        <div class="rtc-desc">7-day performance overview</div>
+      </div>
+      <div class="report-type-card" data-type="monthly">
+        <div class="rtc-icon" style="background:rgba(255,159,67,0.15);color:#ff9f43"><i class="fas fa-calendar-alt"></i></div>
+        <div class="rtc-title">Monthly Report</div>
+        <div class="rtc-desc">30-day comprehensive analysis</div>
+      </div>
+      <div class="report-type-card" data-type="custom">
+        <div class="rtc-icon" style="background:rgba(255,107,157,0.15);color:#ff6b9d"><i class="fas fa-sliders"></i></div>
+        <div class="rtc-title">Custom Report</div>
+        <div class="rtc-desc">Define your own date range</div>
+      </div>
+    </div>
+
+    <!-- Report Preview -->
+    <div class="report-preview">
+      <div class="rp-header">
+        <div>
+          <div class="rp-title" id="rpTitle">Daily Productivity Report</div>
+          <div class="rp-date" id="rpDate">Tuesday, March 31, 2026</div>
+        </div>
+        <div class="rp-actions">
+          <button class="tbl-btn" id="exportCSV"><i class="fas fa-file-csv"></i> Export CSV</button>
+          <button class="tbl-btn primary" id="exportPDF"><i class="fas fa-file-pdf"></i> Export PDF</button>
+          <button class="tbl-btn"><i class="fas fa-share-alt"></i> Share</button>
+        </div>
+      </div>
+
+      <!-- Summary Stats -->
+      <div class="rp-summary">
+        <div class="rps-item">
+          <div class="rps-val" style="color:#6c63ff">91</div>
+          <div class="rps-lbl">Avg Productivity</div>
+        </div>
+        <div class="rps-item">
+          <div class="rps-val" style="color:#00d4aa">87%</div>
+          <div class="rps-lbl">Avg Focus</div>
+        </div>
+        <div class="rps-item">
+          <div class="rps-val" style="color:#ff9f43">6.4h</div>
+          <div class="rps-lbl">Avg Work Time</div>
+        </div>
+        <div class="rps-item">
+          <div class="rps-val" style="color:#54a0ff">96%</div>
+          <div class="rps-lbl">Attendance</div>
+        </div>
+        <div class="rps-item">
+          <div class="rps-val" style="color:#ff6b9d">5</div>
+          <div class="rps-lbl">Total Alerts</div>
+        </div>
+        <div class="rps-item">
+          <div class="rps-val" style="color:#a29bfe">2</div>
+          <div class="rps-lbl">Burnout Risks</div>
+        </div>
+      </div>
+
+      <!-- Charts in report -->
+      <div class="rp-charts">
+        <div class="chart-card">
+          <div class="chart-header"><div class="chart-title">Productivity Overview</div></div>
+          <canvas id="reportChart1" height="160"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header"><div class="chart-title">Activity Breakdown</div></div>
+          <canvas id="reportChart2" height="160"></canvas>
+        </div>
+      </div>
+
+      <!-- Employee Report Table -->
+      <div class="table-card" style="margin-top:20px">
+        <div class="table-header">
+          <div class="table-title">Employee Performance Summary</div>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr><th>#</th><th>Employee</th><th>Dept</th><th>Work Hours</th><th>Focus</th><th>Productivity</th><th>Breaks</th><th>Alerts</th><th>Status</th></tr>
+          </thead>
+          <tbody id="reportTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- AI Insights in Report -->
+      <div class="rp-insights">
+        <div class="rpi-title"><i class="fas fa-robot"></i> AI-Generated Insights</div>
+        <div class="rpi-grid" id="rpiGrid"></div>
+      </div>
+
+    </div>
+
+    <!-- Scheduled Reports -->
+    <div class="chart-card" style="margin-top:24px">
+      <div class="chart-header">
+        <div class="chart-title">Scheduled Reports</div>
+        <button class="tbl-btn primary"><i class="fas fa-plus"></i> Schedule New</button>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Report Name</th><th>Frequency</th><th>Recipients</th><th>Next Run</th><th>Format</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Daily Productivity Summary</td><td>Daily 6PM</td>
+            <td>admin@worksense.ai</td><td>Today 6:00 PM</td>
+            <td><span class="alert-tag info">PDF</span></td>
+            <td><span class="status-pill active">Active</span></td>
+          </tr>
+          <tr>
+            <td>Weekly Team Performance</td><td>Every Monday</td>
+            <td>team@worksense.ai</td><td>Apr 7, 2026</td>
+            <td><span class="alert-tag info">PDF + CSV</span></td>
+            <td><span class="status-pill active">Active</span></td>
+          </tr>
+          <tr>
+            <td>Monthly Analytics Report</td><td>1st of Month</td>
+            <td>cto@worksense.ai</td><td>Apr 1, 2026</td>
+            <td><span class="alert-tag info">PDF</span></td>
+            <td><span class="status-pill active">Active</span></td>
+          </tr>
+          <tr>
+            <td>Burnout Risk Alert Report</td><td>Real-time</td>
+            <td>hr@worksense.ai</td><td>On trigger</td>
+            <td><span class="alert-tag warn">Email</span></td>
+            <td><span class="status-pill active">Active</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<script src="../js/reports.js"></script>
+</body>
+</html>
